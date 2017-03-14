@@ -5,11 +5,9 @@ if ($_GET['location'])
 	$location=$_GET['location'];
 	$statecode=$_GET['statecode'];
 	//////////////////////////// Execute the python shell script and get the output to display as json \\\\\\\\\\\\\\\\\
-	//echo " python HtRealTimeScrapper.py $statecode $location";
-	$command=escapeshellcmd("python /users/nipunarora/Desktop/PHP/HtRealTimeScrapper.py $location $statecode");
 	$output=shell_exec("/usr/bin/python 1.py $statecode $location");
-	//$output=shell_exec("python ");
-	echo $output;
+	$json_response=json_encode($output,JSON_PRETTY_PRINT);
+	echo $json_response;
 }
 else 
 {
