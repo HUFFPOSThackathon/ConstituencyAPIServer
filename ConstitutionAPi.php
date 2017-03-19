@@ -7,6 +7,7 @@ if ($_GET['location'])
 	//////////////////////////// Execute the python shell script and get the output to display as json \\\\\\\\\\\\\\\\\
 	$output['Constituency']=shell_exec("/usr/bin/python 1.py $statecode $location");
 	$json_response=json_encode($output,JSON_PRETTY_PRINT);
+	header('Content-Type: application/json');
 	echo $json_response;
 }
 else 
